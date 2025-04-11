@@ -1,23 +1,37 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
-import PropTypes from 'prop-types';
-import AppBar from '@mui/material/AppBar';
-import CssBaseline from '@mui/material/CssBaseline';
-import Divider from '@mui/material/Divider';
-import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import MenuIcon from '@mui/icons-material/Menu';
-import Toolbar from '@mui/material/Toolbar';
+import * as React from "react";
+import PropTypes from "prop-types";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import CssBaseline from "@mui/material/CssBaseline";
+import Divider from "@mui/material/Divider";
+import Drawer from "@mui/material/Drawer";
+import IconButton from "@mui/material/IconButton";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemText from "@mui/material/ListItemText";
+import MenuIcon from "@mui/icons-material/Menu";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import { useNavigate } from "react-router-dom";
+
+// Icons
+import HouseIcon from "@mui/icons-material/House";
+import Person2OutlinedIcon from "@mui/icons-material/Person2Outlined";
+import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
+import TextSnippetOutlinedIcon from "@mui/icons-material/TextSnippetOutlined";
+import ContactPageOutlinedIcon from "@mui/icons-material/ContactPageOutlined";
 
 const drawerWidth = 240;
-// const navItems = ['Home', 'About','Skills', 'Contact'];
+
+// Navigation items with section IDs
+const navItems = [
+  { name: "Home", id: "home", icon: <HouseIcon /> },
+  { name: "About", id: "about", icon: <Person2OutlinedIcon /> },
+  { name: "Skills", id: "skills", icon: <PsychologyOutlinedIcon /> },
+  { name: "Contact", id: "contact", icon: <ContactPageOutlinedIcon /> },
+];
 
 function DrawerAppBar(props) {
   const { window } = props;
@@ -27,39 +41,49 @@ function DrawerAppBar(props) {
     setMobileOpen((prevState) => !prevState);
   };
 
+  // Scroll to section
+  const navigate = useNavigate();  // Hook to navigate pages
+
+  const handleNav = (id) => {
+    if (id === "resume") {
+      navigate("/resume");  // Navigate to Resume page
+    } else {
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  };;
+
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center'}}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        Portfolio
-      </Typography>
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
+      <a href='/' style={{textDecoration:"none",color:"black"}}>
+          <Typography
+            variant="h4"
+            component="div"
+            sx={{ my:2  ,fontFamily:"Brush Script MT"}}
+          >
+            
+            Portfolio
+          </Typography>
+          </a>
       <Divider />
       <List>
-       
-          <ListItem  disablePadding>
-         
-            <ListItemButton sx={{textAlign:"center"}} href='/'>
-              <ListItemText primary="Home"/>
+        {navItems.map((item) => (
+          <ListItem key={item.name} disablePadding>
+            <ListItemButton sx={{ textAlign: "center" }} onClick={() => handleNav(item.id)}>
+              {item.icon}
+              <ListItemText primary={item.name} sx={{ ml: 1 }} />
             </ListItemButton>
+          
           </ListItem>
-          <ListItem  disablePadding>
-         
-         <ListItemButton sx={{textAlign:"center"}} href='/About'>
-           <ListItemText primary="About"/>
-         </ListItemButton>
-       </ListItem>
-       <ListItem  disablePadding>
-         
-         <ListItemButton sx={{textAlign:"center"}} href='/Skills'>
-           <ListItemText primary="skills"/>
-         </ListItemButton>
-       </ListItem>
-       <ListItem  disablePadding>
-         
-         <ListItemButton sx={{textAlign:"center"}} href='/Contact'>
-           <ListItemText primary="Contact"/>
-         </ListItemButton>
-       </ListItem>
-       
+        ))}
+        <ListItem disablePadding>
+        <ListItemButton sx={{textAlign:"center"}} onClick={() => handleNav("resume")}>
+        <TextSnippetOutlinedIcon />
+        <ListItemText primary="Resume" sx={{ml:1}}/>
+        </ListItemButton>
+        </ListItem>
       </List>
     </Box>
   );
@@ -67,41 +91,40 @@ function DrawerAppBar(props) {
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex'}}>
+    <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar component="nav">
-        <Toolbar  sx={{backgroundColor:"black"}}>
+      <AppBar component="nav" sx={{ backgroundColor: "black" }}>
+        <Toolbar>
           <IconButton
             color="inherit"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
+            sx={{ mr: 2, display: { sm: "none" } }}
           >
             <MenuIcon />
           </IconButton>
+          <a href='/' style={{textDecoration:"none",color:"inherit"}}>
           <Typography
-            variant="h6"
+            variant="h4"
             component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' ,fontFamily:"cursive"} }}
+            mx={2}
+            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } ,fontFamily:"Brush Script MT"}}
           >
-            My portfolio
+            
+            Portfolio
           </Typography>
-          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            {/* {navItems.map((item) => ( */}
-              <Button  href='/'sx={{ color: '#fff'}}>
-                Home
+          </a>
+          <Box sx={{ display: { xs: "none", sm: "block" } , marginLeft: "auto" }}>
+            {navItems.map((item) => (
+              <Button key={item.name} sx={{ color: "#fff",ml:1 }} onClick={() => handleNav(item.id)}>
+                {item.icon} {item.name}
               </Button>
-              <Button  href='/About'sx={{ color: '#fff'}}>
-                About
-              </Button>
-              <Button  href='/Skills'sx={{ color: '#fff'}}>
-                Skills
-              </Button>
-              <Button  href='/Contact'sx={{ color: '#fff'}}>
-                Contact
-              </Button>
-            {/* ))} */}
+              
+            ))}
+            <Button key="resume" sx={{ color: "#fff" }} onClick={() => handleNav("resume")}>
+              <TextSnippetOutlinedIcon /> Resume
+            </Button>
           </Box>
         </Toolbar>
       </AppBar>
@@ -115,24 +138,18 @@ function DrawerAppBar(props) {
             keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
-            display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            display: { xs: "block", sm: "none" },
+            "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth },
           }}
         >
           {drawer}
         </Drawer>
       </nav>
-      
     </Box>
-    
   );
 }
 
 DrawerAppBar.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
   window: PropTypes.func,
 };
 

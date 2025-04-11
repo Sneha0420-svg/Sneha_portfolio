@@ -1,55 +1,131 @@
-import { Box, Grid, Typography,Button } from "@mui/material"
-import TextField from '@mui/material/TextField';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
-import EmailIcon from '@mui/icons-material/Email';
-import CreateIcon from '@mui/icons-material/Create';
-import SendIcon from '@mui/icons-material/Send';
+import { Box, Grid, Typography } from "@mui/material";
+import React from "react";
+import CallIcon from "@mui/icons-material/Call";
+import EmailIcon from "@mui/icons-material/Email";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import { motion } from "framer-motion";
 
+export const Contact = () => {
+  return (
+    <>
+      <Box
+      id="contact"
+        sx={{
+          minHeight: "500px",
+          backgroundImage: "url(https://wallpapercave.com/wp/BMrmUGk.jpg)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          px: 2, // Padding on small screens
+        }}
+      >
+        <Grid container justifyContent="center">
+          <Grid
+            item
+            xs={12}
+            sm={10}
+            md={8}
+            lg={6}
+            sx={{
+              borderRadius: "20px",
+              background: "rgba(255, 255, 255, 0.1)",
+              backdropFilter: "blur(10px)",
+              border: "2px solid rgba(255, 255, 255, 0.3)",
+              boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.3)",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              textAlign: "center",
+              padding: { xs: "20px", md: "40px" }, // Responsive padding
+            }}
+          >
+            {/* Contact Heading */}
+            <Typography
+              variant="h4"
+              sx={{
+                color: "white",
+                fontWeight: "bold",
+                fontSize: { xs: "24px", sm: "32px", md: "40px" },
+              }}
+            >
+              CONTACT <span style={{ color: "violet" }}>Me</span>
+              <motion.span
+                animate={{
+                  rotate: [0, -20, 20, 0], // Tilting left and right
+                  scale: [1, 1.2, 1], // Slight pulsing effect
+                }}
+                transition={{
+                  duration: 0.5,
+                  repeat: Infinity,
+                  repeatDelay: 0.3,
+                }}
+                style={{ display: "inline-block", marginLeft: "10px" }}
+              >
+                <CallIcon
+                  sx={{
+                    fontSize: { xs: "40px", md: "50px" },
+                    color: "violet",
+                    filter: "drop-shadow(0 0 10px violet)",
+                  }}
+                />
+              </motion.span>
+            </Typography>
 
+            {/* Contact Details */}
+            <Grid container spacing={2} sx={{ marginTop: "20px" }}>
+              {/* Phone Number */}
+              <Grid
+                item
+                xs={12}
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <CallIcon sx={{ color: "violet", marginRight: "10px" }} />
+                <Typography variant="h6" color="white" fontSize={{ xs: "16px", sm: "20px" }}>
+                  +91 9677575630
+                </Typography>
+              </Grid>
 
+              {/* Email */}
+              <Grid
+                item
+                xs={12}
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <EmailIcon sx={{ color: "violet", marginRight: "10px" }} />
+                <Typography variant="h6" color="white" fontSize={{ xs: "16px", sm: "20px" }}>
+                  snehajerish@gmail.com
+                </Typography>
+              </Grid>
 
-const Contact=()=>{
-  
-
-    
-    return(
-        <Box container >
-          <Grid item sx={{height:"70px"}}></Grid>
-          <Grid sx={{height:"200px",width:"200px"}}>
-            <img src="https://tse4.mm.bing.net/th?id=OIP.3OI0KC9E8WXIDZVqo-ajgQHaE2&pid=Api&P=0&h=180" alt="not found" />
+              {/* Location */}
+              <Grid
+                item
+                xs={12}
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <LocationOnIcon sx={{ color: "violet", marginRight: "10px" }} />
+                <Typography variant="h6" color="white" fontSize={{ xs: "16px", sm: "20px" }}>
+                  Tirunelveli, India
+                </Typography>
+              </Grid>
             </Grid>
-         
-         
-    <Grid container sx={{display:"flex",justifyContent:"space-evenly"}}>
-     <Grid item lg={6} md={6} sm={12} sx={{width:"50%"}}>
-     <Box sx={{ display: 'flex', alignItems: 'flex-end'}}>
-        <AccountCircle sx={{ color: 'hsl(176, 68.10%, 50.80%)',mb:5 }} />
-        <TextField fullWidth   helperText="Please enter your name" label="Enter your name" id="fullWidth" required />
+          </Grid>
+        </Grid>
       </Box>
-      <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
-        <LocalPhoneIcon sx={{ color: 'hsl(176, 68.10%, 50.80%)',mb:5 }} />
-        <TextField fullWidth label="Ph.No" id="fullWidth"   required />
-      </Box>
-      <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
-        <EmailIcon sx={{ color: 'hsl(176, 68.10%, 50.80%)',mb:5 }} />
-        <TextField fullWidth label="Enter your E-mail id" id="fullWidth"  required />
-      </Box>
-      <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
-        <CreateIcon sx={{ color: 'hsl(176, 68.10%, 50.80%)',mb:5 }} />
-        <TextField fullWidth label="Additional suggestion(optional)" id="fullWidth" />
-      </Box>
-       
-      <Button variant="contained"   startIcon={<SendIcon/>} sx={{backgroundColor:"hsl(176, 68.10%, 50.80%)",marginLeft:"40%",marginTop:"10%"}} >Send Message</Button>
-
-
-     </Grid>
-     <Grid item lg={4} md={6} sm={6} sx={{marginTop:"-50px"}}>
-     <img src="https://designfirst.in/wp-content/uploads/2019/12/gdz-contact-support-450x450.png" alt="not found" />
-
-     </Grid>
-    </Grid>
-        </Box>
-    )
-}
-export default Contact
+    </>
+  );
+};

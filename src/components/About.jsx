@@ -1,30 +1,70 @@
-import { Grid, Typography } from '@mui/material'
-import Box from '@mui/material/Box'
-import Button from '@mui/material/Button'
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import React from 'react';
+import { Box, Grid, Typography } from '@mui/material';
+import PanToolAltOutlinedIcon from '@mui/icons-material/PanToolAltOutlined';
 
-const About=()=>{
-   return(
-    <Box  sx={{backgroundImage:"linear-gradient(to right, #c31432, #240b36)"}}>
-      <Grid container>
-      <Grid item lg={7} md={6} sm={12} sx={{height:"700px",width:"100%",display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
-       <Grid sx={{height:"70px",width:"100%"}}> 
-         <Typography variant='h4' sx={{color:"yellow",textAlign:"center"}}><b>About <span style={{color:"hsl(176, 68.10%, 50.80%)"}}>Me</span></b> !</Typography>
-       </Grid>
-       <Grid sx={{height:"auto",width:"100%",lineHeight:"100px",textAlign:"center",color:"white"}} >
-         <Typography>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam possimus iusto, cum, amet, quas nihil quo accusantium blanditiis voluptatum corporis nulla ea! Ipsa ducimus beatae laudantium esse est, nam quaerat nostrum, expedita accusamus perferendis repudiandae nemo officia veniam aperiam rerum distinctio architecto saepe? Aspernatur unde doloremque, quae adipisci esse, eaque, hic consectetur voluptate sunt impedit architecto dolorum ipsum repudiandae numquam.</Typography>
-        
-       </Grid >
-       <Button variant="contained" endIcon={<ArrowForwardIcon/>}sx={{backgroundColor:"hsl(176, 68.10%, 50.80%)",borderRadius:"50px",mt:5}}>Readmore</Button>
-       </Grid>
-       
-       <Grid item lg={5} md={6} sm={12} sx={{height:"700px",width:"100%",display:"flex",alignItems:"center",justifyContent:"center"}}>
-         <Grid sx={{height:"300px",aspectRatio: "1/cos(30deg)",clipPath: "polygon(50% -50%,100% 50%,50% 150%,0 50%)",backgroundColor: "hsl(176, 68.10%, 50.80%)",boxShadow:"8px 8px 15px hsl(176, 68.10%, 50.80%)"}}>
-           <img src="https://www.befunky.com/images/wp/wp-2021-01-linkedin-profile-picture-after.jpg?auto=avif,webp&format=jpg&width=944" alt="not found" style={{height:"290px",aspectRatio: "1/cos(30deg)",clipPath: "polygon(50% -50%,100% 50%,50% 150%,0 50%)"}}/>
-         </Grid>
-      </Grid>
+export const About = () => {
+  return (
+    <Box
+    id="about"
+      sx={{
+        width: '100%',
+      
+        py: { xs: 4, md: 8 },
+        px: { xs: 2, md: 4 },
+      }}
+    >
+      <Grid container justifyContent="center">
+        <Grid
+          item
+          lg={9}
+          md={9}
+          sm={10}
+          xs={12}
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            textAlign: 'center',
+            gap: 3,
+          }}
+        >
+          <Typography variant="h2" color="white" mt={3}>
+            Know Who <span style={{ color: 'violet' }}>I'M</span>
+          </Typography>
+          <Typography variant="h5" color="white" mt={3}>
+            "Hi everyone, I'm <span style={{ color: 'violet' }}><i>SAHAYA SNEHA</i></span> from{' '}
+            <span style={{ color: 'violet' }}><i>Tirunelveli</i></span>. I recently completed my{' '}
+            <span style={{ color: 'violet' }}><i>Frontend Development</i></span> training at Karka Software Academy.
+            I have a BSc in Mathematics and have practiced building both dynamic and static webpages using{' '}
+            <span style={{ color: 'violet' }}><i>HTML5, CSS3</i></span> and{' '}
+            <span style={{ color: 'violet' }}><i>JAVASCRIPT</i></span>. Additionally, I created an e-commerce website using{' '}
+            <span style={{ color: 'violet' }}><i>REACT.JS and MUI</i>.</span>"
+          </Typography>
+          <Typography color="white" mt={4} fontSize={{ xs: '20px', md: '27px' }}>
+            Apart from coding, some other activities that I love to do
+          </Typography>
+          <Box sx={{ width: '80%', mx: 'auto', my: 3 }}>
+            <Typography variant="h6" color="white" display="flex" alignItems="center">
+              <PanToolAltOutlinedIcon
+                sx={{ transform: 'rotate(90deg)', mx: 2, fontSize: '30px' }}
+              />
+              Listening Music
+            </Typography>
+            <Typography variant="h6" color="white" display="flex" alignItems="center">
+              <PanToolAltOutlinedIcon
+                sx={{ transform: 'rotate(90deg)', mx: 2, fontSize: '30px' }}
+              />
+              Puzzle Solving
+            </Typography>
+            <Typography variant="h6" color="white" display="flex" alignItems="center">
+              <PanToolAltOutlinedIcon
+                sx={{ transform: 'rotate(90deg)', mx: 2, fontSize: '30px' }}
+              />
+              Gardening
+            </Typography>
+          </Box>
+        </Grid>
       </Grid>
     </Box>
-   )
-}
-export default About
+  );
+};
