@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Sneha_portfolio/static/css/main.e6c13ad2.css",
+    "main.js": "/Sneha_portfolio/static/js/main.67ffbc8c.js",
+    "static/js/488.9561f9b8.chunk.js": "/Sneha_portfolio/static/js/488.9561f9b8.chunk.js",
+    "static/media/Sahaya Sneha_page-0001.jpg": "/Sneha_portfolio/static/media/Sahaya Sneha_page-0001.8afb99508ffd603fdaac.jpg",
+    "index.html": "/Sneha_portfolio/index.html",
+    "main.e6c13ad2.css.map": "/Sneha_portfolio/static/css/main.e6c13ad2.css.map",
+    "main.67ffbc8c.js.map": "/Sneha_portfolio/static/js/main.67ffbc8c.js.map",
+    "488.9561f9b8.chunk.js.map": "/Sneha_portfolio/static/js/488.9561f9b8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.67ffbc8c.js"
+  ]
+}
