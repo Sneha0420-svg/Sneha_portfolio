@@ -57,7 +57,10 @@ function DrawerAppBar(props) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-     <Typography
+
+    
+
+    <Typography
   onClick={() => navigate('/')}
   variant="h4"
   component="div"
@@ -110,8 +113,10 @@ function DrawerAppBar(props) {
           >
             <MenuIcon />
           </IconButton>
-         <Typography
-  onClick={() => navigate('/')}
+      
+
+          <Typography
+  onClick={() =>navigate('/')}
   variant="h4"
   component="div"
   mx={2}
@@ -126,7 +131,8 @@ function DrawerAppBar(props) {
 >
   Portfolio
 </Typography>
-          </a>
+
+
           <Box sx={{ display: { xs: "none", sm: "block" } , marginLeft: "auto" }}>
             {navItems.map((item) => (
               <Button key={item.name} sx={{ color: "#fff",ml:1 }} onClick={() => handleNav(item.id)}>
