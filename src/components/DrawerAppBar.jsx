@@ -57,16 +57,22 @@ function DrawerAppBar(props) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <a onClick={()=>handleNav('/')} style={{textDecoration:"none",color:"black"}}>
-          <Typography
-            variant="h4"
-            component="div"
-            sx={{ my:2  ,fontFamily:"Brush Script MT"}}
-          >
-            
-            Portfolio
-          </Typography>
-          </a>
+     <Typography
+  onClick={() => navigate('/')}
+  variant="h4"
+  component="div"
+  mx={2}
+  sx={{
+    flexGrow: 1,
+    display: { xs: "none", sm: "block" },
+    fontFamily: "Brush Script MT",
+    cursor: "pointer",
+    color: "inherit",
+    textDecoration: "none"
+  }}
+>
+  Portfolio
+</Typography>
       <Divider />
       <List>
         {navItems.map((item) => (
@@ -104,16 +110,22 @@ function DrawerAppBar(props) {
           >
             <MenuIcon />
           </IconButton>
-          <a  onClick={()=>handleNav('/')} style={{textDecoration:"none",color:"inherit"}}>
-          <Typography
-            variant="h4"
-            component="div"
-            mx={2}
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } ,fontFamily:"Brush Script MT"}}
-          >
-            
-            Portfolio
-          </Typography>
+         <Typography
+  onClick={() => navigate('/')}
+  variant="h4"
+  component="div"
+  mx={2}
+  sx={{
+    flexGrow: 1,
+    display: { xs: "none", sm: "block" },
+    fontFamily: "Brush Script MT",
+    cursor: "pointer",
+    color: "inherit",
+    textDecoration: "none"
+  }}
+>
+  Portfolio
+</Typography>
           </a>
           <Box sx={{ display: { xs: "none", sm: "block" } , marginLeft: "auto" }}>
             {navItems.map((item) => (
