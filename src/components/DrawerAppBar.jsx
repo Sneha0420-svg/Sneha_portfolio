@@ -57,7 +57,7 @@ function DrawerAppBar(props) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <a href='/' style={{textDecoration:"none",color:"black"}}>
+      <a onClick={()=>handleNav('/')} style={{textDecoration:"none",color:"black"}}>
           <Typography
             variant="h4"
             component="div"
@@ -104,7 +104,7 @@ function DrawerAppBar(props) {
           >
             <MenuIcon />
           </IconButton>
-          <a href='/' style={{textDecoration:"none",color:"inherit"}}>
+          <a  onClick={()=>handleNav('/')} style={{textDecoration:"none",color:"inherit"}}>
           <Typography
             variant="h4"
             component="div"
