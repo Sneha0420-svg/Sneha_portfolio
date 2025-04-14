@@ -30,13 +30,14 @@ export const Resume = () => {
           }}
         >
           <a
+             download="SahayaSneha_Resume.pdf"
+              href="Sahaya Sneha.pdf"
             style={{ textDecoration: "none", width: "100%", display: "flex", justifyContent: "center" }}
           >
             <Button
               variant="contained"
               endIcon={<DownloadIcon />}
-              download="SahayaSneha_Resume.pdf"
-              href="/Sahaya Sneha.pdf"
+             
               sx={{
                 height: "50px",
                 width: { xs: "100%", sm: "80%", md: "70%" }, // Responsive width
